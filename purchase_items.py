@@ -8,24 +8,26 @@ class ItemToPurchase:
     total_cost = self.item_price * self.item_quantity
     print(f'{self.item_name} {int(self.item_quantity)} @ ${self.item_price:.2f} = ${total_cost:.2f}')
 
-items = []
-num_items = int(input("Enter the number of items: "))
+#Create the first item
+print("Item 1")
+item_1 = ItemToPurchase()
+item_1.item_name = input("Enter the item name:\n")
+item_1.item_price = float(input("Enter the item price:\n"))
+item_1.item_quantity = float(input("Enter the item quantity:\n"))
 
-#loop the number of items entered to acquire item name,price, and quatity for number of items
-for i in range(num_items):
-  print(f"\nItem {i+1}")
-  item = ItemToPurchase()
-  item.item_name = input("Enter the item name:\n")
-  item.item_price = float(input("Enter the item price:\n"))
-  item.item_quantity = float(input("Enter the item quantity:\n"))
-  items.append(item)
+#Create the second item
+print("\nItem 2")
+item_2 = ItemToPurchase()
+item_2.item_name = input("Enter the item name:\n")
+item_2.item_price = float(input("Enter the item price:\n"))
+item_2.item_quantity = float(input("Enter the item quantity:\n"))
 
+#Print Total cost
 print("\nTOTAL COST")
 total_cost = 0
-#loop through items to print item cost and determine total cost
-for item in items:
-  item.print_item_cost()
-  total_cost += item.item_price * item.item_quantity
+item_1.print_item_cost()
+item_2.print_item_cost()
+total_cost = (item_1.item_price * item_1.item_quantity) + (item_2.item_price * item_2.item_quantity)
 
 #print total cost
 print(f'Total: ${total_cost:.2f}')
